@@ -1,6 +1,7 @@
 package controllers;
 
 import models.User;
+import models.UserDao;
 import play.db.jpa.Transactional;
 import play.mvc.*;
 
@@ -20,9 +21,14 @@ public class HomeController extends Controller {
      */
     @Transactional(readOnly=true)
     public Result index() {
-        User user = User.findById(1L);
+        User user = UserDao.findById(1L);
 
-        return ok(index.render("hello play framework" + user.username));
+        String userName = "";
+        if (user != null ) {
+            userName = user.getUserName();
+        }
+
+        return ok(index.render("hello play framework" + userName));
     }
 
 }
