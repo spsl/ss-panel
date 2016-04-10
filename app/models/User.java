@@ -22,6 +22,7 @@ public class User {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   public long id;
+
   public String username;
 
   public static User findById(Long id){

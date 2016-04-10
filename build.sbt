@@ -12,5 +12,9 @@ libraryDependencies ++= Seq(
   javaWs,
   javaJpa,
   "mysql" % "mysql-connector-java" % "5.1.35",
-  "org.hibernate" % "hibernate-entitymanager" % "3.6.10.Final"
+  "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final"
 )
+
+routesGenerator := InjectedRoutesGenerator
+
+PlayKeys.externalizeResources := false
