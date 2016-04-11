@@ -26,7 +26,7 @@ public class ServerApi extends Controller{
 	@Transactional(readOnly =true)
 	public Result downloadApp(String filename){
 		InputStream is = null;
-		String filePath = Application.getfilePath() + "/public/apps/";
+		String filePath = Application.getRootPath() + "/public/apps/";
 		File imgFile = new File(filePath + filename);
 		try {
 				is = new FileInputStream(imgFile);

@@ -50,9 +50,7 @@ public class Application extends Controller {
   }
 
 
-  public static String getfilePath() {
-    String rootPath = Play.application().path().getAbsolutePath();
-
-    return rootPath;
+  public static String getRootPath() {
+    return Play.application().path().getAbsolutePath();
   }
 }
