@@ -8,7 +8,7 @@ import javax.persistence.Id;
 /**
  * Created by spsl on 2016/4/10 - 16:10.
  */
-public class NodeOnineLog {
+public class NodeOnlineLog {
 
   @Id
   @GeneratedValue(strategy= GenerationType.AUTO)
