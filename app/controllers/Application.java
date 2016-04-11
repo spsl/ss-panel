@@ -1,9 +1,8 @@
 package controllers;
 
+import java.util.Date;
 import play.*;
-import play.db.jpa.Transactional;
 import play.mvc.*;
-import play.mvc.Http.Session;
 
 public class Application extends Controller {
   public static final String USER_NAME = "user_name";
@@ -16,11 +15,7 @@ public class Application extends Controller {
   public static String lang = "cn";
 
   public Result index() {
-    Session mySession = session();
-    if (mySession.containsKey(USER_NAME)) {
-      return null;
-    }
-    return null;
+    return ok("hello world" + new Date());
   }
 
   public Result login() {

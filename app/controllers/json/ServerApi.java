@@ -1,5 +1,6 @@
 package controllers.json;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,7 +10,9 @@ import java.io.InputStream;
 
 import controllers.Application;
 
+import models.JsonResult;
 import play.db.jpa.Transactional;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -21,7 +24,7 @@ public class ServerApi extends Controller{
 	 *************************************/
 	
 	@Transactional(readOnly =true)
-	public static Result downloadApp(String filename){
+	public Result downloadApp(String filename){
 		InputStream is = null;
 		String filePath = Application.getfilePath() + "/public/apps/";
 		File imgFile = new File(filePath + filename);
@@ -31,6 +34,17 @@ public class ServerApi extends Controller{
 			e.printStackTrace();
 		}
 		return ok(is);
+	}
+
+
+	public Result testJson() {
+
+		JsonResult jsonResult = new JsonResult();
+		jsonResult.setCode(123);
+
+		JsonNode result = Json.toJson(jsonResult);
+
+		return ok(result);
 	}
 
 	

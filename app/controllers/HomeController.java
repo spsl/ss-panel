@@ -23,14 +23,14 @@ public class HomeController extends Controller {
      */
     @Transactional(readOnly=true)
     public Result index() {
-        User user = UserDao.findById(1L);
+        //User user = UserDao.findById(1L);
+        //
+        //String userName = "";
+        //if (user != null ) {
+        //    userName = user.getUserName();
+        //}
 
-        String userName = "";
-        if (user != null ) {
-            userName = user.getUserName();
-        }
-
-        return ok(index.render("hello play framework" + userName));
+        return ok(index.render("hello play framework"));
     }
 
 }

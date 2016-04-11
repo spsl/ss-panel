@@ -12,7 +12,9 @@ libraryDependencies ++= Seq(
   javaWs,
   javaJpa,
   "mysql" % "mysql-connector-java" % "5.1.35",
-  "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final"
+  "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final",
+  "com.fasterxml.jackson.core" % "jackson-databind" % "2.7.3"
+
 )
 
 routesGenerator := InjectedRoutesGenerator
