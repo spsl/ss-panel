@@ -1,7 +1,7 @@
 package controllers;
 
 import models.User;
-import models.UserDao;
+import dao.UserDao;
 import play.db.jpa.Transactional;
 import play.mvc.*;
 

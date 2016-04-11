@@ -1,5 +1,6 @@
-package models;
+package dao;
 
+import models.User;
 import play.db.jpa.JPA;
 
 /**
