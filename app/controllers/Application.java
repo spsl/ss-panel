@@ -1,8 +1,9 @@
 package controllers;
 
-import java.util.Date;
 import play.*;
+import play.api.i18n.Lang;
 import play.mvc.*;
+import views.html.index;
 
 public class Application extends Controller {
   public static final String USER_NAME = "user_name";
@@ -12,10 +13,22 @@ public class Application extends Controller {
   public static final String ADMIN = "admin";
   public static final String USER = "user";
 
-  public static String lang = "cn";
+
+
+  public static final String lang = "cn";
+  public static Lang CN = Lang.get("cn").get();
+
+  static {
+    if (null == CN) {
+      CN = Lang.apply("cn");
+    }
+  }
 
   public Result index() {
-    return ok("hello world" + new Date());
+
+
+
+    return ok(index.render());
   }
 
   public Result login() {
