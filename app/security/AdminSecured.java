@@ -9,7 +9,7 @@ public class AdminSecured extends Secured{
 		String userId =  cxt.session().get(Application.USER_NAME);
 		String roleId =  cxt.session().get(Application.ROLE_ID);
 		
-		if(userId != null){
+		if(userId != null) {
 			return userId;
 		}
 		return null;
