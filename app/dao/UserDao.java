@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.List;
 import models.User;
 import play.db.jpa.JPA;
 
@@ -23,6 +24,31 @@ public class UserDao {
   public static void delete(Long id) {
     User user = findById(id);
     JPA.em().remove(user);
+  }
+
+  /**
+   * 验证登录信息
+   * @param username
+   * @param password
+   * @return
+   */
+  public static User auth(String username, String password) {
+
+    //String queryString = "from User user where isEnable =1 and username=? and password=?";
+    //
+    ////String queryString = "";
+    //
+    //@SuppressWarnings("unchecked")
+    //List<User> result = JPA.em().createQuery(queryString)
+    //    .setParameter(1, username)
+    //    .setParameter(2, password)
+    //    .getResultList();
+    //
+    //if(result.size() > 0){
+    //  return result.get(0);
+    //}
+
+    return null;
   }
 
 }
