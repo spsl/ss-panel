@@ -30,7 +30,7 @@ public class HomeController extends Controller {
         //    userName = user.getUserName();
         //}
 
-        return ok(index.render("hello play framework"));
+        return ok(testAngular.render());
     }
 
 }

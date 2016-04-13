@@ -3,7 +3,7 @@ package controllers;
 import play.*;
 import play.api.i18n.Lang;
 import play.mvc.*;
-import views.html.index;
+import views.html.testAngular;
 
 public class Application extends Controller {
   public static final String USER_NAME = "user_name";
@@ -28,11 +28,11 @@ public class Application extends Controller {
 
 
 
-    return ok(index.render());
+    return ok(testAngular.render());
   }
 
   public Result login() {
-    return null;
+    return ok(testAngular.render());
   }
 
   public static class Login {
