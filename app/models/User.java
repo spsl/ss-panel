@@ -1,5 +1,6 @@
 package models;
 
+import com.avaje.ebean.Model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.joda.time.DateTime;
+import play.data.validation.Constraints;
 
 /**
  * Created by spsl on 2016/4/9 - 18:18.
@@ -17,11 +19,10 @@ import org.joda.time.DateTime;
 
 @Entity
 @Table(name="user")
-public class User implements Serializable{
+public class User extends Model{
 
-  private static final long serialVersionUID = 1L;
   @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY)
+  @Constraints.Min(10)
   private long id;
 
   @Column(name="user_name")
@@ -84,10 +85,6 @@ public class User implements Serializable{
 
   @Column(name="reg_ip")
   private String regIp = "127.0.0.1";
-
-  public static long getSerialVersionUID() {
-    return serialVersionUID;
-  }
 
   public long getId() {
     return id;

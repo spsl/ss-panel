@@ -1,13 +1,11 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import dao.UserDao;
+import java.util.List;
 import models.JsonResult;
-import models.User;
+import models.Task;
 import play.*;
-import play.api.i18n.Lang;
-import play.db.jpa.Transactional;
-import play.libs.Json;
+import play.api.mvc.LegacyI18nSupport;
 import play.mvc.*;
 import views.html.login;
 import views.html.testAngular;
@@ -37,7 +35,6 @@ public class Application extends Controller {
   }
 
 
-  @Transactional
   public Result auth() {
 
     JsonNode jsonNode = request().body().asJson();
@@ -45,24 +42,23 @@ public class Application extends Controller {
     System.out.println(jsonNode.get("username"));
     System.out.println(jsonNode.get("password"));
 
-    //User user = UserDao.auth(jsonNode.get("username").textValue(), jsonNode.get("password").textValue());
+    Task t = new Task();
+    t.name = "sunsai";
+    t.passWord = "sunsai";
+    t.save();
 
-    User u = new User();
-    u.setUserName("sunsai");
-    u.setPass("pass");
-    u.setPasswd("passwd");
-    u.setEmail("email");
-    u.setT(1);
-    u.setU(12);
-    u.setTransferEnable(12);
-    u.setPort(12);
-    u.setD(2);
-    UserDao.add(u);
 
-    JsonResult jsonResult = new JsonResult();
-    jsonResult.setCode(0);
+    List<Task> task = Task.find.where()
+        .eq("name", "sunsai")
+        .eq("passWord", "sunsai")
+        .findList();
 
-    return ok(Json.toJson(jsonResult));
+    JsonResult result = new JsonResult();
+
+    result.setMsg("error");
+    result.setData(task);
+
+    return ok(result.json());
   }
 
   public static class Login {

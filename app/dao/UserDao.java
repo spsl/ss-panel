@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.List;
 import models.User;
 import play.db.jpa.JPA;
 
@@ -33,22 +32,15 @@ public class UserDao {
    * @return
    */
   public static User auth(String username, String password) {
-
-    String queryString = "from user user where isEnable =1 and username=? and password=?";
-    //
-    ////String queryString = "";
-    //
-    @SuppressWarnings("unchecked")
-    List<User> result = JPA.em().createNativeQuery(queryString)
-        .setParameter(1, username)
-        .setParameter(2, password)
-        .getResultList();
-
-    if(result.size() > 0){
-      return result.get(0);
-    }
-
+    //return User.find.where()
+    //    .eq("userName", username)
+    //    .eq("passwd", password).findUnique();
     return null;
   }
+
+
+  //public static Finder<Long,User> find = new Finder (
+  //    Long.class, Locale.Category.class
+  //);
 
 }
