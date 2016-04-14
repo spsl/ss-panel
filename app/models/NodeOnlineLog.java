@@ -1,5 +1,6 @@
 package models;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,10 +9,12 @@ import javax.persistence.Id;
 /**
  * Created by spsl on 2016/4/10 - 16:10.
  */
-public class NodeOnlineLog {
+public class NodeOnlineLog implements Serializable{
+
+  private static final long serialVersionUID = 1L;
 
   @Id
-  @GeneratedValue(strategy= GenerationType.AUTO)
+  @GeneratedValue(strategy= GenerationType.IDENTITY)
   private long id;
 
   @Column(name="node_id")
