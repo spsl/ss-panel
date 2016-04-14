@@ -9,37 +9,27 @@ import play.libs.Json;
  */
 public class JsonResult implements Serializable{
 
-  private int code;
+  public int code;
 
-  private String msg;
+  public String msg;
 
-  private Object data;
+  public Object data;
 
   public JsonNode json() {
     return Json.toJson(this);
   }
 
-  public int getCode() {
-    return code;
-  }
 
-  public void setCode(int code) {
+  public void code(int code) {
     this.code = code;
   }
 
-  public String getMsg() {
-    return msg;
+  public void data(Object data) {
+    this.data = data;
   }
 
-  public void setMsg(String msg) {
+  public void msg(String msg) {
     this.msg = msg;
   }
 
-  public Object getData() {
-    return data;
-  }
-
-  public void setData(Object data) {
-    this.data = data;
-  }
 }

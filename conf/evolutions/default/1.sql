@@ -3,6 +3,42 @@
 
 # --- !Ups
 
+create table ss_config (
+  id                            bigint auto_increment not null,
+  key                           varchar(255),
+  value                         varchar(255),
+  constraint pk_ss_config primary key (id)
+);
+
+create table invite_code (
+  id                            bigint auto_increment not null,
+  code                          varchar(255),
+  user_id                       integer,
+  constraint pk_invite_code primary key (id)
+);
+
+create table log (
+  id                            bigint auto_increment not null,
+  type                          varchar(255),
+  msg                           varchar(255),
+  constraint pk_log primary key (id)
+);
+
+create table node (
+  id                            bigint auto_increment not null,
+  name                          varchar(255),
+  type                          varchar(255),
+  server                        varchar(255),
+  method                        varchar(255),
+  custom_method                 varchar(255),
+  traffic_rate                  double,
+  info                          varchar(255),
+  status                        varchar(255),
+  offset                        integer,
+  sort                          integer,
+  constraint pk_node primary key (id)
+);
+
 create table task (
   id                            bigint auto_increment not null,
   name                          varchar(255),
@@ -42,6 +78,14 @@ create table user (
 
 
 # --- !Downs
+
+drop table if exists ss_config;
+
+drop table if exists invite_code;
+
+drop table if exists log;
+
+drop table if exists node;
 
 drop table if exists task;
 

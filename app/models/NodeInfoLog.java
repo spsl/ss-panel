@@ -1,19 +1,21 @@
 package models;
 
+import com.avaje.ebean.Model;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import play.data.validation.Constraints;
 
 /**
  * Created by spsl on 2016/4/10 - 16:07.
  */
-public class NodeInfoLog implements Serializable{
-  public static final long serialVersionUID = 1L;
+public class NodeInfoLog extends Model{
+
 
   @Id
-  @GeneratedValue(strategy= GenerationType.IDENTITY)
+  @Constraints.Min(10)
   private long id;
 
   @Column(name="node_id")

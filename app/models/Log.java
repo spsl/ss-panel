@@ -1,21 +1,26 @@
 package models;
 
+import com.avaje.ebean.Model;
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import play.data.format.Formats;
+import play.data.validation.Constraints;
 
 /**
  * Created by spsl on 2016/4/10 - 15:58.
  */
-public class Log implements Serializable{
+@Entity
+@Table(name="log")
+public class Log extends Model{
 
-  public static final long serialVersionUID = 1L;
 
   @Id
-  @GeneratedValue(strategy= GenerationType.IDENTITY)
+  @Constraints.Min(10)
   private long id;
 
   private String type;

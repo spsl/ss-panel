@@ -48,6 +48,7 @@ public class Application extends Controller {
     t.save();
 
 
+
     List<Task> task = Task.find.where()
         .eq("name", "sunsai")
         .eq("passWord", "sunsai")
@@ -55,8 +56,8 @@ public class Application extends Controller {
 
     JsonResult result = new JsonResult();
 
-    result.setMsg("error");
-    result.setData(task);
+    result.msg = "error";
+    result.data = task;
 
     return ok(result.json());
   }

@@ -14,7 +14,7 @@ import play.data.validation.Constraints;
 public class Task extends Model {
 
   @Id
-  @Constraints.Min(10)
+  @Constraints.Min(5)
   public Long id;
 
   @Constraints.Required
