@@ -1,9 +1,11 @@
 package models;
 
+import java.io.Serializable;
+
 /**
  * Created by sunsai on 2016/4/11 - 14:01.
  */
-public class JsonResult {
+public class JsonResult implements Serializable{
 
   private int code;
 

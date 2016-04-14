@@ -1,5 +1,7 @@
 package models;
 
+import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,11 +17,11 @@ import org.joda.time.DateTime;
 
 @Entity
 @Table(name="user")
-public class User {
+public class User implements Serializable{
 
   private static final long serialVersionUID = 1L;
   @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
   private long id;
 
   @Column(name="user_name")
@@ -31,7 +33,7 @@ public class User {
 
   private String passwd;
 
-  private int t;
+  private int t = 0;
 
   private long u;
 
@@ -43,45 +45,45 @@ public class User {
   private int port;
 
   @Column(name="switch")
-  private int _switch;
+  private int switchState = 1;
 
-  private int enable;
+  private int enable = 1;
 
-  private int type;
+  private int type = 1;
 
   @Column(name="last_get_gift_time")
-  private int lastgetGiftTime;
+  private int lastGetGiftTime = 0;
 
   @Column(name="last_check_in_time")
-  private int lastCheckInTime;
+  private int lastCheckInTime = 0;
 
   @Column(name="last_rest_pass_time")
-  private int lastResetPassTime;
+  private int lastResetPassTime = 0;
 
   @Column(name="reg_date")
-  private DateTime regDate;
+  private Date regDate;
 
 
   @Column(name="invite_num")
-  private int inviteNum;
+  private int inviteNum = 0;
 
   @Column(name="is_admin")
-  private int isAdmin;
+  private int isAdmin = 0;
 
   @Column(name="ref_by")
-  private int refBy;
+  private int refBy = 0;
 
   @Column(name="expire_time")
-  private int expireTime;
+  private int expireTime = 0;
 
-  private String method;
+  private String method = "rc4-md5";
 
 
   @Column(name="is_email_verify")
-  private int isEmailVerify;
+  private int isEmailVerify = 0;
 
   @Column(name="reg_ip")
-  private String regIp;
+  private String regIp = "127.0.0.1";
 
   public static long getSerialVersionUID() {
     return serialVersionUID;
@@ -167,12 +169,12 @@ public class User {
     this.port = port;
   }
 
-  public int get_switch() {
-    return _switch;
+  public int getSwitchState() {
+    return switchState;
   }
 
-  public void set_switch(int _switch) {
-    this._switch = _switch;
+  public void setSwitchState(int switchState) {
+    this.switchState = switchState;
   }
 
   public int getEnable() {
@@ -191,12 +193,20 @@ public class User {
     this.type = type;
   }
 
-  public int getLastgetGiftTime() {
-    return lastgetGiftTime;
+  public Date getRegDate() {
+    return regDate;
   }
 
-  public void setLastgetGiftTime(int lastgetGiftTime) {
-    this.lastgetGiftTime = lastgetGiftTime;
+  public void setRegDate(Date regDate) {
+    this.regDate = regDate;
+  }
+
+  public int getLastGetGiftTime() {
+    return lastGetGiftTime;
+  }
+
+  public void setLastGetGiftTime(int lastGetGiftTime) {
+    this.lastGetGiftTime = lastGetGiftTime;
   }
 
   public int getLastCheckInTime() {
@@ -213,14 +223,6 @@ public class User {
 
   public void setLastResetPassTime(int lastResetPassTime) {
     this.lastResetPassTime = lastResetPassTime;
-  }
-
-  public DateTime getRegDate() {
-    return regDate;
-  }
-
-  public void setRegDate(DateTime regDate) {
-    this.regDate = regDate;
   }
 
   public int getInviteNum() {

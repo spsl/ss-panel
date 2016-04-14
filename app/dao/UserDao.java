@@ -34,19 +34,19 @@ public class UserDao {
    */
   public static User auth(String username, String password) {
 
-    //String queryString = "from User user where isEnable =1 and username=? and password=?";
+    String queryString = "from user user where isEnable =1 and username=? and password=?";
     //
     ////String queryString = "";
     //
-    //@SuppressWarnings("unchecked")
-    //List<User> result = JPA.em().createQuery(queryString)
-    //    .setParameter(1, username)
-    //    .setParameter(2, password)
-    //    .getResultList();
-    //
-    //if(result.size() > 0){
-    //  return result.get(0);
-    //}
+    @SuppressWarnings("unchecked")
+    List<User> result = JPA.em().createNativeQuery(queryString)
+        .setParameter(1, username)
+        .setParameter(2, password)
+        .getResultList();
+
+    if(result.size() > 0){
+      return result.get(0);
+    }
 
     return null;
   }

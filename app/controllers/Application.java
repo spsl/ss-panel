@@ -5,9 +5,7 @@ import dao.UserDao;
 import models.JsonResult;
 import models.User;
 import play.*;
-import play.api.data.Form;
 import play.api.i18n.Lang;
-import play.api.libs.ws.ssl.SystemConfiguration;
 import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.*;
@@ -29,18 +27,8 @@ public class Application extends Controller {
   //public static final Result INDEX = redirect(routes.Application.index());
 
   public static final String lang = "cn";
-  public static Lang CN = Lang.get("cn").get();
-
-  static {
-    if (null == CN) {
-      CN = Lang.apply("cn");
-    }
-  }
 
   public Result index() {
-
-
-
     return ok(testAngular.render());
   }
 
@@ -57,7 +45,19 @@ public class Application extends Controller {
     System.out.println(jsonNode.get("username"));
     System.out.println(jsonNode.get("password"));
 
-    User user = UserDao.auth(jsonNode.get("username").textValue(), jsonNode.get("password").textValue());
+    //User user = UserDao.auth(jsonNode.get("username").textValue(), jsonNode.get("password").textValue());
+
+    User u = new User();
+    u.setUserName("sunsai");
+    u.setPass("pass");
+    u.setPasswd("passwd");
+    u.setEmail("email");
+    u.setT(1);
+    u.setU(12);
+    u.setTransferEnable(12);
+    u.setPort(12);
+    u.setD(2);
+    UserDao.add(u);
 
     JsonResult jsonResult = new JsonResult();
     jsonResult.setCode(0);
