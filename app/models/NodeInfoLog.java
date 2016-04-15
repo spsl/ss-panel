@@ -1,10 +1,7 @@
 package models;
 
 import com.avaje.ebean.Model;
-import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import play.data.validation.Constraints;
 

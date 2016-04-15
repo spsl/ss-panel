@@ -1,19 +1,25 @@
 package models;
 
+import com.avaje.ebean.Model;
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import play.data.validation.Constraints;
 
 /**
  * Created by spsl on 2016/4/10 - 16:19.
  */
-public class UserTrafficLog implements Serializable{
 
-  private static final long serialVersionUID = 1L;
+@Entity
+@Table(name="user_traffic_log")
+public class UserTrafficLog extends Model{
+
   @Id
-  @GeneratedValue(strategy= GenerationType.IDENTITY)
+  @Constraints.Min(5)
   private long id;
 
   @Column(name="user_id")
