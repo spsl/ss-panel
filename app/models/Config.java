@@ -2,6 +2,7 @@ package models;
 
 import com.avaje.ebean.Model;
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +19,7 @@ import play.data.validation.Constraints;
 @Table(name="ss_config")
 public class Config extends Model{
 
+  public static Finder<Long, Config> find = new Finder<>(Config.class);
 
   @Id
   @Constraints.Min(10)
@@ -28,10 +30,68 @@ public class Config extends Model{
   private String value;
 
   @Column(name="create_at")
-  private Formats.DateTime createAt;
+  private Date createAt;
 
   @Column(name="update_at")
-  private Formats.DateTime updateAt;
+  private Date updateAt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public long getId() {
     return id;
@@ -57,19 +117,19 @@ public class Config extends Model{
     this.value = value;
   }
 
-  public Formats.DateTime getCreateAt() {
+  public Date getCreateAt() {
     return createAt;
   }
 
-  public void setCreateAt(Formats.DateTime createAt) {
+  public void setCreateAt(Date createAt) {
     this.createAt = createAt;
   }
 
-  public Formats.DateTime getUpdateAt() {
+  public Date getUpdateAt() {
     return updateAt;
   }
 
-  public void setUpdateAt(Formats.DateTime updateAt) {
+  public void setUpdateAt(Date updateAt) {
     this.updateAt = updateAt;
   }
 }

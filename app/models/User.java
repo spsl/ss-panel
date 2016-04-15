@@ -21,6 +21,9 @@ import play.data.validation.Constraints;
 @Table(name="user")
 public class User extends Model{
 
+
+
+
   @Id
   @Constraints.Min(10)
   private long id;
@@ -85,6 +88,94 @@ public class User extends Model{
 
   @Column(name="reg_ip")
   private String regIp = "127.0.0.1";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public long getId() {
     return id;

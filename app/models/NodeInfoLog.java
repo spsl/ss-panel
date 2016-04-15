@@ -2,14 +2,19 @@ package models;
 
 import com.avaje.ebean.Model;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import play.data.validation.Constraints;
 
 /**
  * Created by spsl on 2016/4/10 - 16:07.
  */
+@Entity
+@Table(name="ss_node_info_log")
 public class NodeInfoLog extends Model{
 
+  public static Finder<Long, NodeInfoLog> find = new Finder<>(NodeInfoLog.class);
 
   @Id
   @Constraints.Min(10)
@@ -25,6 +30,47 @@ public class NodeInfoLog extends Model{
 
   @Column(name="log_time")
   private int logTime;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public long getId() {
     return id;

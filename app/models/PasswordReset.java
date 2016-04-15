@@ -1,20 +1,26 @@
 package models;
 
+import com.avaje.ebean.Model;
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import play.data.validation.Constraints;
 
 /**
  * Created by spsl on 2016/4/10 - 16:12.
  */
-public class PasswordReset implements Serializable{
+@Entity
+@Table(name="ss_password_reset")
+public class PasswordReset extends Model{
 
-  private static final long serialVersionUID = 1L;
+  public static Finder<Long, PasswordReset> find = new Finder<>(PasswordReset.class);
 
   @Id
-  @GeneratedValue(strategy= GenerationType.IDENTITY)
+  @Constraints.Min(5)
   private long id;
 
   private String email;
@@ -26,6 +32,41 @@ public class PasswordReset implements Serializable{
 
   @Column(name="expire_time")
   private int expireTime;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public long getId() {
     return id;

@@ -18,6 +18,8 @@ import play.data.validation.Constraints;
 @Table(name="user_traffic_log")
 public class UserTrafficLog extends Model{
 
+  public static Finder<Long, UserTrafficLog> find = new Finder<>(UserTrafficLog.class);
+
   @Id
   @Constraints.Min(5)
   private long id;
@@ -34,6 +36,98 @@ public class UserTrafficLog extends Model{
 
   @Column(name="log_time")
   private int logTime;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public long getId() {
     return id;

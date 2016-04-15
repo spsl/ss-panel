@@ -20,6 +20,8 @@ import play.data.validation.Constraints;
 @Table(name="invite_code")
 public class InviteCode extends Model {
 
+  public static Finder<Long, InviteCode> find = new Finder<>(InviteCode.class);
+
   @Id
   @Constraints.Min(5)
   private long id;
@@ -35,6 +37,54 @@ public class InviteCode extends Model {
 
   @Column(name="update_at")
   private Formats.DateTime updateAt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

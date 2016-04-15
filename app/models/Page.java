@@ -12,6 +12,35 @@ public class Page<T> {
 
   private List<T> itemList;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   public void setItemList(List<T> itemList) {
     this.itemList = itemList;
   }

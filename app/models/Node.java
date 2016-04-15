@@ -17,6 +17,7 @@ import play.data.validation.Constraints;
 @Table(name="node")
 public class Node extends Model{
 
+  public static Finder<Long, Node> find = new Finder<>(Node.class);
 
   @Id
   @Constraints.Min(10)
@@ -43,6 +44,57 @@ public class Node extends Model{
   private int offset;
 
   private int sort;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public long getId() {
     return id;

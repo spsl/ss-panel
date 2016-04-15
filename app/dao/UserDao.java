@@ -1,28 +1,36 @@
 package dao;
 
+import com.avaje.ebean.Expression;
+import com.avaje.ebean.Model;
+import java.util.List;
 import models.User;
 import play.db.jpa.JPA;
+
+import static com.avaje.ebean.Expr.eq;
+import static com.avaje.ebean.Expr.like;
 
 /**
  * Created by spsl on 2016/4/10 - 15:46.
  */
 public class UserDao {
 
+  public static Model.Finder<Long, User> find = new Model.Finder<>(User.class);
+
+
   public static User findById(Long id) {
-    return JPA.em().find(User.class, id);
+    return find.byId(id);
   }
 
   public static void add(User user) {
-    JPA.em().persist(user);
+      user.save();
   }
 
   public static void update(User user) {
-    JPA.em().merge(user);
+    user.update();
   }
 
   public static void delete(Long id) {
-    User user = findById(id);
-    JPA.em().remove(user);
+    find.deleteById(id);
   }
 
   /**
@@ -32,10 +40,17 @@ public class UserDao {
    * @return
    */
   public static User auth(String username, String password) {
-    //return User.find.where()
-    //    .eq("userName", username)
-    //    .eq("passwd", password).findUnique();
+
+
+
     return null;
+  }
+
+
+  public static User findByUsernameOrEmail(String username, String email) {
+    return find.where()
+        .or(eq("email", email), eq("userName", username))
+        .findUnique();
   }
 
 

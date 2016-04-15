@@ -1,20 +1,27 @@
 package models;
 
+import com.avaje.ebean.Model;
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import play.data.validation.Constraints;
 
 /**
  * Created by spsl on 2016/4/10 - 16:14.
  */
-public class UserToken implements Serializable{
+@Entity
+@Table(name="user_token")
+public class UserToken extends Model{
 
-  private static final long serialVersionUID = 1L;
+
+  public static Finder<Long, UserToken> find = new Finder<>(UserToken.class);
 
   @Id
-  @GeneratedValue(strategy= GenerationType.IDENTITY)
+  @Constraints.Min(5)
   private long id;
 
   private String token;
@@ -27,6 +34,73 @@ public class UserToken implements Serializable{
 
   @Column(name="expire_time")
   private int expireTime;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public long getId() {
     return id;

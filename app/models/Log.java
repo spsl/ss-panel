@@ -18,6 +18,7 @@ import play.data.validation.Constraints;
 @Table(name="log")
 public class Log extends Model{
 
+  public static Finder<Long, Log> find = new Finder<>(Log.class);
 
   @Id
   @Constraints.Min(10)
@@ -29,6 +30,60 @@ public class Log extends Model{
 
   @Column(name="create_time")
   private Formats.DateTime createTime;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public long getId() {
     return id;

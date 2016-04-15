@@ -1,7 +1,6 @@
 package dao;
 
 import models.Config;
-import play.db.jpa.JPA;
 
 /**
  * Created by sunsai on 2016/4/11 - 12:28.
@@ -9,20 +8,19 @@ import play.db.jpa.JPA;
 public class ConfigDao {
 
   public static Config findById(Long id) {
-    return JPA.em().find(Config.class, id);
+    return Config.find.byId(id);
   }
 
   public static void add(Config config) {
-    JPA.em().persist(config);
+    config.save();
   }
 
   public static void update(Config config) {
-    JPA.em().merge(config);
+    config.update();
   }
 
   public static void delete(Long id) {
-    Config config = findById(id);
-    JPA.em().remove(config);
+    Config.find.deleteById(id);
   }
 
 }
