@@ -1,13 +1,9 @@
 package dao;
 
-import com.avaje.ebean.Expression;
 import com.avaje.ebean.Model;
-import java.util.List;
 import models.User;
-import play.db.jpa.JPA;
 
 import static com.avaje.ebean.Expr.eq;
-import static com.avaje.ebean.Expr.like;
 
 /**
  * Created by spsl on 2016/4/10 - 15:46.
