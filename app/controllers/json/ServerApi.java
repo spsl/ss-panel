@@ -39,7 +39,7 @@ public class ServerApi extends Controller{
 
 	public Result testJson() {
 
-		JsonResult jsonResult = new JsonResult();
+		JsonResult jsonResult = JsonResult.instance();
 		jsonResult.code = 123;
 
 		JsonNode result = Json.toJson(jsonResult);

@@ -7,6 +7,8 @@ create table ss_config (
   id                            bigint auto_increment not null,
   key                           varchar(255),
   value                         varchar(255),
+  create_at                     datetime(6),
+  update_at                     datetime(6),
   constraint pk_ss_config primary key (id)
 );
 
@@ -37,6 +39,32 @@ create table node (
   offset                        integer,
   sort                          integer,
   constraint pk_node primary key (id)
+);
+
+create table ss_node_info_log (
+  id                            bigint auto_increment not null,
+  node_id                       integer,
+  uptime                        double,
+  load                          varchar(255),
+  log_time                      integer,
+  constraint pk_ss_node_info_log primary key (id)
+);
+
+create table ss_node_online_log (
+  id                            bigint auto_increment not null,
+  node_id                       integer,
+  online_user                   integer,
+  log_time                      integer,
+  constraint pk_ss_node_online_log primary key (id)
+);
+
+create table ss_password_reset (
+  id                            bigint auto_increment not null,
+  email                         varchar(255),
+  token                         varchar(255),
+  init_time                     integer,
+  expire_time                   integer,
+  constraint pk_ss_password_reset primary key (id)
 );
 
 create table task (
@@ -76,6 +104,25 @@ create table user (
   constraint pk_user primary key (id)
 );
 
+create table user_token (
+  id                            bigint auto_increment not null,
+  token                         varchar(255),
+  user_id                       integer,
+  create_time                   integer,
+  expire_time                   integer,
+  constraint pk_user_token primary key (id)
+);
+
+create table user_traffic_log (
+  id                            bigint auto_increment not null,
+  user_id                       integer,
+  node_id                       integer,
+  rate                          double,
+  traffic                       varchar(255),
+  log_time                      integer,
+  constraint pk_user_traffic_log primary key (id)
+);
+
 
 # --- !Downs
 
@@ -87,7 +134,17 @@ drop table if exists log;
 
 drop table if exists node;
 
+drop table if exists ss_node_info_log;
+
+drop table if exists ss_node_online_log;
+
+drop table if exists ss_password_reset;
+
 drop table if exists task;
 
 drop table if exists user;
+
+drop table if exists user_token;
+
+drop table if exists user_traffic_log;
 

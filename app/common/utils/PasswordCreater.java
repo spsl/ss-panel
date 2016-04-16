@@ -1,4 +1,4 @@
-package tool;
+package common.utils;
 
 import play.api.libs.Codecs;
 

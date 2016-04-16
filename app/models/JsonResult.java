@@ -9,27 +9,39 @@ import play.libs.Json;
  */
 public class JsonResult{
 
+  //private JsonNode result;
+
   public int code;
 
   public String msg;
 
   public Object data;
 
+  private JsonResult() {
+    //result = Json.toJson(this);
+  }
+
+  public static JsonResult instance() {
+    return new JsonResult();
+  }
+
   public JsonNode json() {
     return Json.toJson(this);
   }
 
-
-  public void code(int code) {
+  public JsonResult code(int code) {
     this.code = code;
+    return this;
   }
 
-  public void data(Object data) {
+  public JsonResult data(Object data) {
     this.data = data;
+    return this;
   }
 
-  public void msg(String msg) {
+  public JsonResult msg(String msg) {
     this.msg = msg;
+    return this;
   }
 
 }

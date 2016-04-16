@@ -1,8 +1,6 @@
 package controllers;
 
-import models.User;
-import dao.UserDao;
-import play.db.jpa.Transactional;
+
 import play.mvc.*;
 
 import security.Secured;
@@ -15,22 +13,9 @@ import views.html.*;
 @Security.Authenticated(Secured.class)
 public class HomeController extends Controller {
 
-    /**
-     * An action that renders an HTML page with a welcome message.
-     * The configuration in the <code>routes</code> file means that
-     * this method will be called when the application receives a
-     * <code>GET</code> request with a path of <code>/</code>.
-     */
-    @Transactional(readOnly=true)
-    public Result index() {
-        //User user = UserDao.findById(1L);
-        //
-        //String userName = "";
-        //if (user != null ) {
-        //    userName = user.getUserName();
-        //}
 
-        return ok(testAngular.render());
+    public Result index() {
+        return ok(index.render());
     }
 
 }

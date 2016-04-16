@@ -3,6 +3,7 @@ package dao;
 import com.avaje.ebean.Model;
 import models.User;
 
+import static com.avaje.ebean.Expr.and;
 import static com.avaje.ebean.Expr.eq;
 
 /**
@@ -36,10 +37,12 @@ public class UserDao {
    * @return
    */
   public static User auth(String username, String password) {
-
-
-
-    return null;
+    return find.where()
+        .or(
+            and(eq("userName", username), eq("passwd", password))
+            ,and(eq("email", username), eq("passwd", password))
+        )
+        .findUnique();
   }
 
 

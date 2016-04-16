@@ -15,7 +15,7 @@ public class Secured extends Authenticator {
 	
 	@Override
 	public Result onUnauthorized(Context cxt) {
-		return new Application().login();
+		return Application.LOGIN;
 	}
 
 }
