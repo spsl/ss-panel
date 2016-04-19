@@ -1,0 +1,104 @@
+@()
+
+@content = {
+  <div class="card" data-ng-controller="addNodeController">
+    <div class="card-header">
+      <h2>节点信息 </h2>
+    </div>
+
+    <div class="card-body card-padding">
+      <form role="form" class="ng-pristine ng-valid">
+        <div class="form-group fg-line">
+          <label for="exampleInputEmail1">节点名称</label>
+          <input type="text" class="form-control" ng-model="form.name" placeholder="输入节点名称">
+        </div>
+
+        <div class="form-group fg-line">
+          <label for="exampleInputPassword1">节点地址</label>
+          <input type="text" class="form-control" ng-model="form.address"  placeholder="输入节点地址">
+        </div>
+
+        <div class="form-group fg-line">
+          <label for="exampleInputPassword1">加密方式</label>
+          <input type="text" class="form-control" ng-model="form.method"   placeholder="输入加密方式">
+        </div>
+
+        <div class="form-group fg-line">
+          <label for="exampleInputPassword1">流量比例</label>
+          <input type="number" class="form-control" ng-model="form.rate" placeholder="输入流量比例">
+        </div>
+
+        <div class="form-group fg-line">
+            <div class="toggle-switch" data-ts-color="blue">
+              <label for="zidingyi" class="ts-label">自定义加密</label>
+              <input id="zidingyi" ng-model="form.customMethod" type="checkbox" hidden="hidden">
+              <label for="zidingyi" class="ts-helper"></label>
+            </div>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="card-header">
+      <h2>描述信息 </h2>
+    </div>
+
+    <div class="card-body card-padding">
+      <form role="form" class="ng-pristine ng-valid">
+        <div class="form-group fg-line">
+          <div class="toggle-switch" data-ts-color="blue">
+            <label for="nodeIsShow" class="ts-label">是否显示</label>
+            <input id="nodeIsShow" ng-model="form.type" type="checkbox" hidden="hidden">
+            <label for="nodeIsShow" class="ts-helper"></label>
+          </div>
+        </div>
+
+        <div class="form-group fg-line">
+          <label for="exampleInputPassword1">节点状态</label>
+          <input type="text" class="form-control" ng-model="form.status"  placeholder="输入节点是否可用">
+        </div>
+
+        <div class="form-group fg-line">
+          <label for="exampleInputPassword1">排序</label>
+          <input type="number" class="form-control" ng-model="form.sort"  placeholder="输入数字，数字越大越靠前显示">
+        </div>
+
+        <div class="form-group fg-line">
+          <label for="exampleInputPassword1">节点描述</label>
+            <textarea class="form-control" rows="5" ng-model="form.info" placeholder="简单的描述一下节点信息吧"></textarea>
+        </div>
+
+
+        <button type="submit" class="btn bgm-teal waves-effect">保&nbsp;&nbsp;存</button>
+      </form>
+    </div>
+
+  </div>
+
+}
+
+@js = {
+
+  <script>
+    var app = angular.module("materialAdmin");
+
+    app.controller("addNodeController", function($scope){
+
+      $scope.saveNode = function() {
+
+        var url = "/save";
+
+
+
+      }
+
+    });
+
+  </script>
+
+}
+
+@tpl.template("添加节点", "node")(content)(js)
+
+
+

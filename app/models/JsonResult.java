@@ -11,11 +11,11 @@ public class JsonResult{
 
   //private JsonNode result;
 
-  public int code;
+  private int code = 0;
 
-  public String msg;
+  private String msg;
 
-  public Object data;
+  private Object data;
 
   private JsonResult() {
     //result = Json.toJson(this);
